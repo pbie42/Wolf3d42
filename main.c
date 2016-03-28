@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:55:48 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/25 16:42:57 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/28 15:14:16 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 	t_env e;
 
 	e.check = 0;
-	ac != 2 ? ft_error("error wrong number of arguments") : ft_parse(&e, av[1]);
+	ac != 2 ? ft_exit("Error: Wrong Number of Arguments!") : ft_parse(&e, av[1]);
 	ft_init(&e);
 	mlx_string_put(e.mlx, e.win, 760, 250, 0xccccff, WELCOME);
 	mlx_string_put(e.mlx, e.win, 760, 279, 0xccccff, PRESS);

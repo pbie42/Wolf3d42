@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:27:54 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/25 17:16:02 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/28 15:09:18 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@
 # define COLOR_EAST 0X682860
 # define COLOR_WEST 0X746cc0
 
-# define WELCOME "Wolf3d by pkerckho"
+# define WELCOME "Wolf3d by pbie"
 # define PRESS "Press any key to start"
 
-# define CONTROLS "# define CONTROLS "
+# define CONTROLS "#      CONTROLS "
 # define H_UP "     move up    |    up"
 # define H_DOWN "    move down   |   down"
 # define H_LEFT "    move left   |   left"
@@ -76,8 +76,18 @@ typedef struct				s_dxy
 	double					y;
 }							t_dxy;
 
+typedef struct				s_img
+{
+	void					*im;
+	char					*imc;
+	int						imlen;
+	int						bpp;
+	int						endi;
+}							t_img;
+
 typedef struct				s_env
 {
+	char					*choice;
 	int						fd;
 	char					**line;
 	int						cnt_line;
@@ -89,11 +99,8 @@ typedef struct				s_env
 	void					*win;
 	int						color;
 
-	void					*im;
-	char					*imc;
-	int						imlen;
-	int						bpp;
-	int						endi;
+	t_img					img;
+	t_img					sky;
 
 	double					camera;
 	int						wall;
