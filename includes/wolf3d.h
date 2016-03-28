@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:27:54 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 15:09:18 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/28 17:33:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define PAGE_DOWN 121
 # define ZERO 82
 # define ESC 53
+
+# define SKY "textures/sky.xpm"
 
 # define COLOR_SKY 0x007fff
 # define COLOR_FLOOR 0x008000
@@ -129,14 +131,14 @@ typedef struct				s_env
 
 void						ft_parse(t_env *e, char *line);
 void						ft_put_help(t_env e);
-void						ft_put_pixel(t_env *e, int x, int y, int color);
+static void						ft_put_pixel(t_env *e, int x, int y, int color);
 int							ft_key_hit(int keycode, t_env *e);
 int							ft_key_release(int keycode, t_env *e);
 int							ft_core(t_env *e);
 void						ft_disp_screen(t_env *e);
-void						ft_size_ray(t_env *e);
-void						ft_hit_ray(t_env *e);
-void						ft_direction_ray(t_env *e);
+void						ft_ray_size(t_env *e);
+void						ft_ray_hit(t_env *e);
+void						ft_ray_direction(t_env *e);
 void						ft_init_ray(t_env *e, int x);
 void						ft_move(t_env *e);
 
