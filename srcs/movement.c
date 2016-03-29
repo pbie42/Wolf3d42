@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 17:33:59 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 23:28:11 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 13:07:46 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ void			ft_move(t_env *e)
 	{
 		if (!(e->map[(int)(e->pos.x + e->dir.x * e->speed)][(int)(e->pos.y)]))
 			e->pos.x += e->dir.x * e->speed;
-
+		if (!(e->map[(int)(e->pos.x)][(int)(e->pos.y + e->dir.y * e->speed)]))
+			e->pos.y += e->dir.y * e->speed;
+	}
+	if (e->left == 1)
+		ft_rotate(e, 1);
+	if (e->right == 1)
+		ft_rotate(e, -1);
+	if (e->down == 1)
+	{
+		if (!(e->map[(int)(e->pos.x - e->dir.x * e->speed)][(int)(e->pos.y)]))
+			e->pos.x -= e->dir.x * e->speed;
+		if (!(e->map[(int)(e->pos.x)][(int)(e->pos.y - e->dir.y * e->speed)]))
+			e->pos.y -= e->dir.y * e->speed;
 	}
 }
