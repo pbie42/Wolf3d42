@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 17:02:23 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 17:05:46 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 18:44:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ void			ft_mapset_check(int keycode, t_env *e)
 		e->set = (e->set == 0 ? 1 : 0);
 	if (keycode == M)
 		e->mini = (e->mini == 0 ? 1 : 0);
+	if (e->check && (keycode == ONE1 || keycode == ONE2))
+	{
+		ft_parse(e, MAP1);
+		ft_init(e);
+	}
+	if (e->check && (keycode == TWO1 || keycode == TWO2))
+	{
+		ft_parse(e, MAP2);
+		ft_init(e);
+	}
+	if (e->check && (keycode == THREE1 || keycode == THREE2))
+	{
+		ft_parse(e, MAP3);
+		ft_init(e);
+	}
 }
 
 int				ft_key_hit(int keycode, t_env *e)

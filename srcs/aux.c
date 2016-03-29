@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:44:05 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 17:16:56 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 18:50:39 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,15 @@ void			ft_controls(t_env *e)
 		mlx_string_put(e->mlx, e->win, x, 136, 0xccccff, L_LINE);
 		mlx_string_put(e->mlx, e->win, x, 144, 0xccccff, L_HIDE);
 		mlx_string_put(e->mlx, e->win, x, 152, 0xccccff, L_LINE);
-		mlx_string_put(e->mlx, e->win, x, 160, 0xccccff, L_RESET);
+		mlx_string_put(e->mlx, e->win, x, 160, 0xccccff, L_EASY);
 		mlx_string_put(e->mlx, e->win, x, 168, 0xccccff, L_LINE);
-		mlx_string_put(e->mlx, e->win, x, 176, 0xccccff, L_ESC);
+		mlx_string_put(e->mlx, e->win, x, 176, 0xccccff, L_MEDIUM);
 		mlx_string_put(e->mlx, e->win, x, 184, 0xccccff, L_LINE);
+		mlx_string_put(e->mlx, e->win, x, 192, 0xccccff, L_HARD);
+		mlx_string_put(e->mlx, e->win, x, 200, 0xccccff, L_LINE);
+		mlx_string_put(e->mlx, e->win, x, 208, 0xccccff, L_RESET);
+		mlx_string_put(e->mlx, e->win, x, 216, 0xccccff, L_LINE);
+		mlx_string_put(e->mlx, e->win, x, 224, 0xccccff, L_ESC);
+		mlx_string_put(e->mlx, e->win, x, 232, 0xccccff, L_LINE);
 	}
 }

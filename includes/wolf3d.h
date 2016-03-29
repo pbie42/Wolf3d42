@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:27:54 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 17:27:26 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 18:51:38 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@
 # define L_MINUS "|Slow Down  |     -     |"
 # define L_MAP "|Hide Map   |     M     |"
 # define L_HIDE "|Hide This  |     H     |"
+# define L_EASY "|Easy       |     1     |"
+# define L_MEDIUM "|Medium     |     2     |"
+# define L_HARD "|Hard       |     3     |"
 # define L_RESET "|Start Over |   Enter   |"
 # define L_LINE " -----------------------"
 # define L_ESC "|Quit Game  |    Esc    |"
