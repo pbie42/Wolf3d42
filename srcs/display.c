@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 17:14:02 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 17:33:50 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 16:47:29 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void		ft_disp_vert(t_env *e, int x)
 void			ft_disp_screen(t_env *e)
 {
 	int			x;
+
+	x = 0;
 	while (x < WIN_X)
 	{
 		ft_init_ray(e, x);
@@ -74,20 +76,23 @@ void			ft_draw_map(t_env *e)
 	if (e->cnt_col * 5 > WIN_X / 2 || e->cnt_line * 5 > WIN_Y / 2)
 		return ;
 	i = -1;
-	while (++i < e->cnt_col)
+	if (e->mini == 0)
 	{
-		j = -1;
-		while (++j < e->cnt_line)
+		while (++i < e->cnt_col)
 		{
-			if (e->map[j][i] == 1)
-				ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
-						0x000000);
-			else if ((int)e->pos.x == j && (int)e->pos.y == i)
-				ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
-						0xFF0000);
-			else
-				ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
-						0xFFFFFF);
+			j = -1;
+			while (++j < e->cnt_line)
+			{
+				if (e->map[j][i] == 1)
+					ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+							0x000000);
+				else if ((int)e->pos.x == j && (int)e->pos.y == i)
+					ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+							0xFF0000);
+				else
+					ft_draw_map_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+							0xFFFFFF);
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/03/28 14:51:48 by pbie             ###   ########.fr        #
+#    Updated: 2016/03/29 15:20:44 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,12 @@ NAME = wolf3d
 CFLAGS = -Wall -Werror -Wextra -I includes
 
 SRC = srcs/main.c \
+	  srcs/calculations.c \
+	  srcs/aux.c \
+	  srcs/display.c \
+	  srcs/movement.c \
+	  srcs/parse.c \
+	  srcs/key_binding.c
 
 OBJ = $(SRC:.c=.o)
 

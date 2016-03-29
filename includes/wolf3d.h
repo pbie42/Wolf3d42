@@ -6,65 +6,81 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:27:54 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 17:33:05 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 17:27:26 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
 
-# define WIN_X 1900
-# define WIN_Y 1400
+# define WIN_X 1280
+# define WIN_Y 800
 
 # define KEYPRESS 2
 # define KEYRELEASE 3
 # define KEYPRESSMASK (1L<<0)
 # define KEYRELEASEMASK (1L<<1)
 
-# define LEFT 0
-# define RIGHT 2
-# define UP 13
-# define DOWN 1
-# define PLUS 69
-# define MINUS 78
-# define STAR 67
-# define SLASH 75
-# define PAGE_UP 116
-# define PAGE_DOWN 121
-# define ZERO 82
+# define A 0
+# define D 2
+# define W 13
+# define S 1
+# define H 4
+# define M 46
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
+# define PLUS1 24
+# define PLUS2 69
+# define MINUS1 27
+# define MINUS2 78
+# define RETURN 36
+# define ENTER 76
+# define ONE1 18
+# define ONE2 83
+# define TWO1 19
+# define TWO2 84
+# define THREE1 20
+# define THREE2 85
 # define ESC 53
 
+# define MAP1 "maps/map01.w3d"
+# define MAP2 "maps/map02.w3d"
+# define MAP3 "maps/map03.w3d"
 # define SKY "textures/sky.xpm"
 
 # define COLOR_SKY 0x007fff
-# define COLOR_FLOOR 0x008000
-# define COLOR_NORTH 0Xc90016
-# define COLOR_SOUTH 0xff9f00
-# define COLOR_EAST 0X682860
-# define COLOR_WEST 0X746cc0
+# define COLOR_FLOOR 0x4E1619
+# define COLOR_NORTH 0x233F67
+# define COLOR_SOUTH 0x655077
+# define COLOR_EAST 0x68C0B9
+# define COLOR_WEST 0x936C83
 
 # define WELCOME "Wolf3d by pbie"
-# define PRESS "Press any key to start"
+# define SELECT "Please Select Maze Difficulty"
+# define EASY "1 for Easy"
+# define MEDIUM "2 for Medium"
+# define HARD "3 for Hard"
 
-# define CONTROLS "#      CONTROLS "
-# define H_UP "     move up    |    up"
-# define H_DOWN "    move down   |   down"
-# define H_LEFT "    move left   |   left"
-# define H_RIGHT "   move right   |   right"
-# define H_PLUS "    zoom in     |     +"
-# define H_MINUS "    zoom out    |     -"
-# define H_STAR "increase height |     *"
-# define H_SLASH "decrease height |     /"
-# define H_PAGE_UP "   next colors  | page up"
-# define H_PAGE_DOWN "previous colors | page down"
-# define H_ZERO "     reset      |     0"
-# define H_ESC "  exit program  |    esc"
+# define L_CONTROLS "         CONTROL "
+# define L_UP "|Forward    |  Up or W  |"
+# define L_DOWN "|Backward   | Down or S |"
+# define L_LEFT "|Turn Left  | Left or A |"
+# define L_RIGHT "|Turn Right | Right or D|"
+# define L_PLUS "|Speed Up   |     +     |"
+# define L_MINUS "|Slow Down  |     -     |"
+# define L_MAP "|Hide Map   |     M     |"
+# define L_HIDE "|Hide This  |     H     |"
+# define L_RESET "|Start Over |   Enter   |"
+# define L_LINE " -----------------------"
+# define L_ESC "|Quit Game  |    Esc    |"
 
-# include "minilibx_macos/mlx.h"
+# include "../minilibx_macros/mlx.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <math.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct				s_xy
 {
@@ -126,12 +142,13 @@ typedef struct				s_env
 	int						right;
 	int						up;
 	int						down;
+	int						set;
+	int						mini;
 
 }							t_env;
 
 void						ft_parse(t_env *e, char *line);
 void						ft_put_help(t_env e);
-static void						ft_put_pixel(t_env *e, int x, int y, int color);
 int							ft_key_hit(int keycode, t_env *e);
 int							ft_key_release(int keycode, t_env *e);
 int							ft_core(t_env *e);
@@ -141,5 +158,9 @@ void						ft_ray_hit(t_env *e);
 void						ft_ray_direction(t_env *e);
 void						ft_init_ray(t_env *e, int x);
 void						ft_move(t_env *e);
+void						ft_draw_map(t_env *e);
+void						ft_init(t_env *e);
+void						ft_welcome(t_env *e);
+void						ft_controls(t_env *e);
 
 #endif

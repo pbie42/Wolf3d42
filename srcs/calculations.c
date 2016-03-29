@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 13:08:02 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 13:25:30 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 13:53:25 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,40 @@ void			ft_ray_direction(t_env *e)
 	}
 }
 
+void			ft_ray_hit(t_env *e)
+{
+	while (e->hit == 0)
+	{
+		if (e->rdist.x < e->rdist.y)
+		{
+			e->rdist.x += e->rdisd.x;
+			e->rmap.x += e->step.x;
+			e->wall = 0;
+		}
+		else
+		{
+			e->rdist.y += e->rdisd.y;
+			e->rmap.y += e->step.y;
+			e->wall = 1;
+		}
+		if (e->map[e->rmap.x][e->rmap.y] == 1)
+			e->hit = 1;
+	}
+}
 
+void			ft_ray_size(t_env *e)
+{
+	double		dist;
+
+	if (e->wall == 0)
+		dist = fabs((e->rmap.x - e->pos.x + (1 - e->step.x) / 2) / e->rdir.x);
+	else
+		dist = fabs((e->rmap.y - e->pos.y + (1 - e->step.y) / 2) / e->rdir.y);
+	e->rh = abs((int)(WIN_X / dist));
+	e->wstart = (-1 * (e->rh)) / 2 + WIN_Y / 2;
+	if (e->wstart < 0)
+		e->wstart = 0;
+	e->wend = e->rh / 2 + WIN_Y / 2;
+	if (e->wend >= WIN_Y)
+		e->wend = WIN_Y - 1;
+}

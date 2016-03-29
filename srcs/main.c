@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:55:48 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 16:56:46 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/29 17:01:59 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void			ft_init(t_env *e)
 	e->sky.im = mlx_xpm_file_to_image(e->mlx, SKY, &win_x, &win_y);
 	e->sky.imc = mlx_get_data_addr(e->sky.im, &e->sky.bpp, &e->sky.imlen,
 			&e->sky.endi);
+	e->set = 0;
+	e->mini = 0;
 }
 
 int				main(void)
@@ -41,7 +43,7 @@ int				main(void)
 	e.img.im = mlx_new_image(e.mlx, WIN_X, WIN_Y);
 	e.img.imc = mlx_get_data_addr(e.img.im, &e.img.bpp, &e.img.imlen,
 			&e.img.endi);
-	ft_welcome(e);
+	ft_welcome(&e);
 	ft_init(&e);
 	mlx_hook(e.win, KEYPRESS, KEYPRESSMASK, ft_key_hit, &e);
 	mlx_hook(e.win, KEYRELEASE, KEYRELEASEMASK, ft_key_release, &e);
