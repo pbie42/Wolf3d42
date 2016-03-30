@@ -6,11 +6,21 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 17:02:23 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 18:44:53 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/30 16:33:09 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+
+void			ft_free_map(t_env *e)
+{
+	int			j;
+
+	j = -1;
+	while (++j < e->cnt_line)
+		free(e->map[j]);
+	free(e->map);
+}
 
 void			ft_mapset_check(int keycode, t_env *e)
 {
@@ -20,16 +30,19 @@ void			ft_mapset_check(int keycode, t_env *e)
 		e->mini = (e->mini == 0 ? 1 : 0);
 	if (e->check && (keycode == ONE1 || keycode == ONE2))
 	{
+		ft_free_map(e);
 		ft_parse(e, MAP1);
 		ft_init(e);
 	}
 	if (e->check && (keycode == TWO1 || keycode == TWO2))
 	{
+		ft_free_map(e);
 		ft_parse(e, MAP2);
 		ft_init(e);
 	}
 	if (e->check && (keycode == THREE1 || keycode == THREE2))
 	{
+		ft_free_map(e);
 		ft_parse(e, MAP3);
 		ft_init(e);
 	}
