@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 15:14:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/30 13:09:30 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/30 13:20:07 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int				ft_split_line(t_env *e)
 		free(line);
 		++ret;
 	}
+	else
+		free(line);
 	return (ret);
 }
 
@@ -90,6 +92,7 @@ void			ft_parse(t_env *e, char *file)
 		nbr_col = -1;
 		while (e->line[++nbr_col])
 			e->map[e->cnt_line][nbr_col] = ft_atoi(e->line[nbr_col]);
+		ft_freestr2d(e);
 		if (nbr_col != e->cnt_col)
 			ft_exit("Error: Invalid Map!");
 	}
