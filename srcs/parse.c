@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 15:14:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/28 16:22:06 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/30 13:09:30 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,20 +95,4 @@ void			ft_parse(t_env *e, char *file)
 	}
 	++e->cnt_line;
 	e->check = 1;
-	// Check Map
-	int			x;
-	int			y;
-	y = 0;
-	while (y < e->cnt_line)
-	{
-		x = 0;
-		while (x < e->cnt_col)
-		{
-			ft_putnbr(e->map[y][x]);
-			ft_putchar(' ');
-			++x;
-		}
-		ft_putchar('\n');
-		++y;
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 17:33:59 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 13:07:46 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/30 13:10:40 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			ft_rotate(t_env *e, int advance)
 	plane = e->rplane.x;
 	e->dir.x = e->dir.x * cos(advance * 0.1) - e->dir.y * sin(advance * 0.1);
 	e->dir.y = dir * sin(advance * 0.1) + e->dir.y * cos(advance * 0.1);
-	e->rplane.x = e->rplane.x * cos(advance * 0.1) 
+	e->rplane.x = e->rplane.x * cos(advance * 0.1)
 		- e->rplane.y * sin(advance * 0.1);
 	e->rplane.y = plane * sin(advance * 0.1) + e->rplane.y * cos(advance * 0.1);
 }

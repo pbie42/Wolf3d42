@@ -6,13 +6,13 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 13:08:02 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/29 13:53:25 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/30 13:10:16 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void			ft_init_ray(t_env  *e, int x)
+void			ft_init_ray(t_env *e, int x)
 {
 	e->camera = 2 * x / (double)(WIN_X) - 1;
 	e->rpos.x = e->pos.x;
